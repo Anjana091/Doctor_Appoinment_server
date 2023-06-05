@@ -4,8 +4,12 @@ const jwt = require("jsonwebtoken")
 
 exports.getAuthTokenFromHeaders = async (req) => {
     try {
-        const token =jwt.sign({},AUTH_TOKEN_JWT_SECRET);
-        return token;
+        const { headers: { authorization } } = req;
+        console.log(authorization)
+        if (authorization && authorization.startsWith("Bearer")) {
+            const token = authorization.split(" ")[1]
+            return token;
+        }
     } catch (e) {
         console.log(e);
         return Promise.reject(e)

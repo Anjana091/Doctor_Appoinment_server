@@ -9,3 +9,4 @@ exports.registerAdmin = async (reqBody) => {
 exports.findAdmin = async (filters = {}, projection = "", options = {}) => {
     return await adminModel.findOne(filters, projection, options);
 }
+

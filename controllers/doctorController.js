@@ -35,3 +35,17 @@ exports.getAllDoctors = async (req, res, next) => {
         next(error);
     }
 }
+exports.deleteDoctor =async (req, res, next) => {
+    try {
+        let reqQuery = req.query;
+
+        await doctorService.deleteOneDoctor(reqQuery.doctorNo);
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "Doctor successfully deleted", isError: false, data: {} });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}

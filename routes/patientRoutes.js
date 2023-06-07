@@ -7,5 +7,7 @@ router.post("/register",patientController.registerUser);
 
 router.get("/all",verify, patientController.getAllUsers);
 
+router.delete("/", patientController.deletePatient);
+
 
 module.exports = router;

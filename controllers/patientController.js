@@ -35,3 +35,18 @@ exports.getAllUsers = async (req, res, next) => {
         next(error);
     }
 }
+
+exports.deletePatient =async (req, res, next) => {
+    try {
+        let reqQuery = req.query;
+
+        await patientService.deleteOnePatient(reqQuery.PatientNo);
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "Patient successfully deleted", isError: false, data: {} });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}

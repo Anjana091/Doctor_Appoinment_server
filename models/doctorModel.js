@@ -5,7 +5,7 @@ const Schema =mongoose.Schema;
 
 const doctorSchema = new Schema(
     { 
-        doctortNo: {
+        doctorNo: {
             type: Number,
             unique: true,
             required: true

@@ -9,3 +9,7 @@ exports.createUser = async(reqbody) => {
 exports.getAllPatients = async() => {
     return await patientModel.find({},"",{});
 }
+
+exports.deleteOnePatient = async (PatientNo) => {
+    return await patientModel.findOneAndDelete({ PatientNo: PatientNo });
+}

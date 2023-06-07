@@ -5,6 +5,11 @@ const Schema =mongoose.Schema;
 
 const patientSchema = new Schema(
     {
+        PatientNo: {
+            type: Number,
+            unique: true,
+            required: true,
+        },
         fullname: {
             type: String,
             required: true,
@@ -14,19 +19,15 @@ const patientSchema = new Schema(
         age: {
             type: Number,
             required: true,
-            min: 1
+
         },
         gender: {
             type: String,
             required: true,
             default: "male",
             enum: ["male", "female"]
-        },
-        PatientNo: {
-            type: Number,
-            unique: true,
-            min: 1
         }
+        
     },
     {
         timestamps: true

@@ -8,7 +8,7 @@ const doctorSchema = new Schema(
         doctortNo: {
             type: Number,
             unique: true,
-            min: 1
+            required: true
         },
         fullname: {
             type: String,
@@ -26,19 +26,13 @@ const doctorSchema = new Schema(
         },
         Experience: {
             type: Number,
-            unique: true,
+            required: true,
         },
         ContactInfo: {
             type: Number,
-            unique: true,
-        },
-        gender: {
-            type: String,
             required: true,
-            default: "male",
-            enum: ["male", "female"]
+            unique: true,
         }
-       
     },
     {
         timestamps: true

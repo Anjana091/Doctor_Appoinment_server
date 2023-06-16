@@ -5,6 +5,10 @@ exports.createUser = async(reqbody) => {
     return await patient.save();
 }
 
+exports.findPatient = async (filters = {}, projection = "", options = {}) => {
+    return await patientModel.findOne(filters, projection, options);
+}
+
 
 exports.getAllPatients = async() => {
     return await patientModel.find({},"",{});

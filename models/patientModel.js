@@ -10,7 +10,7 @@ const patientSchema = new Schema(
             unique: true,
             required: true,
         },
-        MobileNo: {
+        mobileNo: {
             type: Number,
             unique: true,
             required: true,

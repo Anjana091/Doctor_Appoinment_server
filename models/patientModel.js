@@ -10,22 +10,29 @@ const patientSchema = new Schema(
             unique: true,
             required: true,
         },
+        MobileNo: {
+            type: Number,
+            unique: true,
+            required: true,
+        },
         fullname: {
             type: String,
             required: true,
             trim: true,
-            lowercase: true
-        },
+                },
         age: {
             type: Number,
             required: true,
-
         },
         gender: {
             type: String,
             required: true,
             default: "male",
             enum: ["male", "female"]
+        },
+        password: {
+            type: String,
+            required: true
         }
         
     },

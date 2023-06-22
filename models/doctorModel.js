@@ -31,7 +31,15 @@ const doctorSchema = new Schema(
             type: Number,
             required: true,
             unique: true,
-        }
+        },
+        fees: {
+            type: Number,
+            required: true,
+          },
+         tokenPerDay: {
+            type: Number,
+            required: true,
+          }
     },
     {
         timestamps: true

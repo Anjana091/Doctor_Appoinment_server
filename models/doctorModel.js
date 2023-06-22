@@ -32,14 +32,14 @@ const doctorSchema = new Schema(
             required: true,
             unique: true,
         },
-        fees: {
+        fee: {
             type: Number,
             required: true,
           },
          tokenPerDay: {
-            type: Number,
-            required: true,
-          }
+           type: Number,
+           required: true,
+        }
     },
     {
         timestamps: true

@@ -1,3 +1,4 @@
+const { doctorModel } = require("../models");
 const {doctorService} = require("../services/index");
 
 
@@ -49,3 +50,21 @@ exports.deleteDoctor =async (req, res, next) => {
         next(error);
     }
 }
+
+
+exports.getDoctorById = async (req, res, next) => {
+    try {
+        let reqBody = req.body;
+        const doctor = await doctorService.findOneDoctor(reqBody.doctorNo);
+
+
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "student successfully retrieved", isError: false, data: { doctor: doctor } });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+

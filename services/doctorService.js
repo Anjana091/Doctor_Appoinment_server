@@ -13,3 +13,7 @@ exports.getAllDoctor = async() => {
 exports.deleteOneDoctor = async (doctorNo) => {
     return await doctorModel.findOneAndDelete({ doctorNo: doctorNo });
 }
+
+exports.findOneDoctor = async (doctorNo) => {
+    return await doctorModel.findOne({ doctorNo: doctorNo }, "", {});
+}

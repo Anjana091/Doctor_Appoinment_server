@@ -32,7 +32,7 @@ const doctorSchema = new Schema(
             required: true,
             unique: true,
         },
-        fee: {
+        fees: {
             type: Number,
             required: true,
           },

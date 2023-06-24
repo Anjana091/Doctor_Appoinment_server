@@ -46,6 +46,7 @@ exports.loginUser = async (req, res, next) => {
 
         const token = await jwtService.signAuthToken(patient._id);
         let responsePayload = {
+            PatientNo:patient.PatientNo,
             fullname: patient.fullname,
             mobileNo: patient.mobileNo,
             token: token
@@ -85,6 +86,23 @@ exports.deletePatient =async (req, res, next) => {
         res.setHeader("Content-Type", "application/json");
         res.status(200);
         res.json({ message: "Patient successfully deleted", isError: false, data: {} });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+
+exports.getPatientById = async (req, res, next) => {
+    try {
+        let reqBody = req.body;
+        const patient = await patientService.findOnePatient(reqBody.PatientNo);
+
+
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "Patient successfully retrieved", isError: false, data: { patient: patient } });
 
     } catch (error) {
         console.log(error);

@@ -18,5 +18,8 @@ router.get("/all",verify, patientController.getAllUsers);
 
 router.delete("/", patientController.deletePatient);
 
+router.post("/getPatientById", patientController.getPatientById);
+
+
 
 module.exports = router;

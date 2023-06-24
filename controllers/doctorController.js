@@ -60,7 +60,7 @@ exports.getDoctorById = async (req, res, next) => {
 
         res.setHeader("Content-Type", "application/json");
         res.status(200);
-        res.json({ message: "student successfully retrieved", isError: false, data: { doctor: doctor } });
+        res.json({ message: "Doctor successfully retrieved", isError: false, data: { doctor: doctor } });
 
     } catch (error) {
         console.log(error);

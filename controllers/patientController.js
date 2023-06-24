@@ -1,5 +1,7 @@
 const {patientService, jwtService} = require("../services/index");
 const { validationResult } = require("express-validator")
+const { patientModel } = require("../models");
+
 
 
 exports.registerUser =async (req, res, next) => {

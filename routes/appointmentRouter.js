@@ -7,6 +7,7 @@ const {appointmentController}=require("../controllers/index");
 
 router.post("/book-appointment",appointmentController.bookAppointment);
 
+router.post("/booking-availbility",appointmentController.bookingAvailbility);
 
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const { appointmentModel } = require("../models");
-const { appointmentService } = require("../services/index");
+const { appointmentService, patientService } = require("../services/index");
 const moment = require('moment')
 
 exports.bookAppointment = async (req, res, next) => {
@@ -43,6 +43,41 @@ exports.bookingAvailbility = async (req, res, next) => {
                 success: true
             })
         }
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+
+
+exports.appointments = async (req, res, next) => {
+    try {
+        let reqQuery = req.query;
+        const appointments = await appointmentService.getAllAppointments();
+
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "Appointments successfully retrieved", isError: false, data: { appointments: appointments } });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+
+
+exports.getAppointmentByDocId = async (req, res, next) => {
+    try {
+        let reqBody = req.query;
+        const appointment = await appointmentService.findDocAppointments(reqBody.doctorNo);
+
+
+        res.setHeader("Content-Type", "application/json");
+        res.status(200);
+        res.json({ message: "Appointment successfully retrieved", isError: false, data: { appointment: appointment } });
+
     } catch (error) {
         console.log(error);
         next(error);

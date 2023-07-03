@@ -9,5 +9,9 @@ router.post("/book-appointment",appointmentController.bookAppointment);
 
 router.post("/booking-availbility",appointmentController.bookingAvailbility);
 
+router.get("/allAppointments",appointmentController.appointments);
+
+router.post("/getAppointmentById", appointmentController.getAppointmentByDocId);
+
 
 module.exports = router;
